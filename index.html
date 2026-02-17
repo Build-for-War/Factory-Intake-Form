@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build for War - Factory Intake Form | Rouge</title>
+    <style>
+        :root {
+            --color-white: rgba(255, 255, 255, 1);
+            --color-black: rgba(0, 0, 0, 1);
+            --color-cream-50: rgba(252, 252, 249, 1);
+            --color-cream-100: rgba(255, 255, 253, 1);
+            --color-gray-200: rgba(245, 245, 245, 1);
+            --color-gray-300: rgba(167, 169, 169, 1);
+            --color-gray-400: rgba(119, 124, 124, 1);
+            --color-slate-500: rgba(98, 108, 113, 1);
+            --color-brown-600: rgba(94, 82, 64, 1);
+            --color-charcoal-700: rgba(31, 33, 33, 1);
+            --color-charcoal-800: rgba(38, 40, 40, 1);
+            --color-slate-900: rgba(19, 52, 59, 1);
+            --color-teal-300: rgba(50, 184, 198, 1);
+            --color-teal-400: rgba(45, 166, 178, 1);
+            --color-teal-500: rgba(33, 128, 141, 1);
+            --color-teal-600: rgba(29, 116, 128, 1);
+            --color-teal-700: rgba(26, 104, 115, 1);
+            --color-teal-800: rgba(41, 150, 161, 1);
+            --color-red-400: rgba(255, 84, 89, 1);
+            --color-red-500: rgba(192, 21, 47, 1);
+            --color-orange-400: rgba(230, 129, 97, 1);
+            --color-orange-500: rgba(168, 75, 47, 1);
+            --color-brown-600-rgb: 94, 82, 64;
+            --color-teal-500-rgb: 33, 128, 141;
+            --color-slate-900-rgb: 19, 52, 59;
+            --color-slate-500-rgb: 98, 108, 113;
+            --color-red-500-rgb: 192, 21, 47;
+            --color-red-400-rgb: 255, 84, 89;
+            --color-orange-500-rgb: 168, 75, 47;
+            --color-orange-400-rgb: 230, 129, 97;
+            --color-background: var(--color-cream-50);
+            --color-surface: var(--color-cream-100);
+            --color-text: var(--color-slate-900);
+            --color-text-secondary: var(--color-slate-500);
+            --color-primary: var(--color-teal-500);
+            --color-primary-hover: var(--color-teal-600);
+            --color-primary-active: var(--color-teal-700);
+            --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+            --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-btn-primary-text: var(--color-cream-50);
+            --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-error: var(--color-red-500);
+            --color-success: var(--color-teal-500);
+            --color-warning: var(--color-orange-500);
+            --color-info: var(--color-slate-500);
+            --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+            --focus-ring: 0 0 0 3px var(--color-focus-ring);
+            --focus-outline: 2px solid var(--color-primary);
+            --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --radius-base: 8px;
+            --radius-lg: 12px;
+            --space-8: 8px;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-20: 20px;
+            --space-24: 24px;
+            --space-32: 32px;
+            --duration-normal: 250ms;
+            --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-gray-400-rgb: 119, 124, 124;
+                --color-teal-300-rgb: 50, 184, 198;
+                --color-gray-300-rgb: 167, 169, 169;
+                --color-gray-200-rgb: 245, 245, 245;
+                --color-background: var(--color-charcoal-700);
+                --color-surface: var(--color-charcoal-800);
+                --color-text: var(--color-gray-200);
+                --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+                --color-primary: var(--color-teal-300);
+                --color-primary-hover: var(--color-teal-400);
+                --color-primary-active: var(--color-teal-800);
+                --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
+                --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
+                --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
+                --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+                --color-error: var(--color-red-400);
+                --color-success: var(--color-teal-300);
+                --color-warning: var(--color-orange-400);
+                --color-info: var(--color-gray-300);
+                --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
+                --color-btn-primary-text: var(--color-slate-900);
+                --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.5;
+            padding: var(--space-24);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: var(--space-32);
+            padding: var(--space-24);
+            background-color: var(--color-surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-card-border);
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: var(--space-8);
+        }
+
+        .header .subtitle {
+            font-size: 1.125rem;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-8);
+        }
+
+        .header .company {
+            font-size: 0.875rem;
+            color: var(--color-primary);
+            font-weight: 500;
+        }
+
+        .form-card {
+            background-color: var(--color-surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-card-border);
+            padding: var(--space-32);
+            margin-bottom: var(--space-24);
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: var(--space-20);
+            padding-bottom: var(--space-12);
+            border-bottom: 2px solid var(--color-border);
+        }
+
+        .form-group {
+            margin-bottom: var(--space-20);
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 500;
+            font-size: 0.875rem;
+            color: var(--color-text);
+            margin-bottom: var(--space-8);
+        }
+
+        .required {
+            color: var(--color-error);
+            margin-left: 2px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: var(--space-12);
+            font-size: 0.875rem;
+            color: var(--color-text);
+            background-color: var(--color-background);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-base);
+            transition: border-color var(--duration-normal) var(--ease-standard),
+                        box-shadow var(--duration-normal) var(--ease-standard);
+            font-family: var(--font-family-base);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: var(--focus-ring);
+        }
+
+        textarea.form-control {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        select.form-control {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23134252' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right var(--space-12) center;
+            background-size: 16px;
+            padding-right: var(--space-32);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            select.form-control {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-20);
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-12);
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-8);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: var(--color-primary);
+        }
+
+        .checkbox-item label {
+            font-size: 0.875rem;
+            color: var(--color-text);
+            cursor: pointer;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-12);
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-8);
+        }
+
+        .radio-item input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: var(--color-primary);
+        }
+
+        .radio-item label {
+            font-size: 0.875rem;
+            color: var(--color-text);
+            cursor: pointer;
+        }
+
+        .conditional-field {
+            margin-top: var(--space-16);
+            padding: var(--space-16);
+            background-color: var(--color-secondary);
+            border-radius: var(--radius-base);
+            border-left: 3px solid var(--color-primary);
+        }
+
+        .help-text {
+            font-size: 0.75rem;
+            color: var(--color-text-secondary);
+            margin-top: var(--space-8);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-12) var(--space-24);
+            border-radius: var(--radius-base);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--duration-normal) var(--ease-standard);
+            border: none;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: var(--color-btn-primary-text);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-primary-hover);
+        }
+
+        .btn-primary:active {
+            background: var(--color-primary-active);
+        }
+
+        .btn-primary:focus-visible {
+            outline: none;
+            box-shadow: var(--focus-ring);
+        }
+
+        .btn-full {
+            width: 100%;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: var(--space-16);
+            margin-top: var(--space-32);
+        }
+
+        .success-message {
+            display: none;
+            background-color: var(--color-surface);
+            border: 2px solid var(--color-success);
+            border-radius: var(--radius-lg);
+            padding: var(--space-32);
+            text-align: center;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-message h2 {
+            color: var(--color-success);
+            font-size: 1.5rem;
+            margin-bottom: var(--space-16);
+        }
+
+        .success-message p {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-24);
+        }
+
+        .error-message {
+            display: none;
+            padding: var(--space-12);
+            background-color: rgba(var(--color-red-500-rgb), 0.1);
+            border: 1px solid var(--color-error);
+            border-radius: var(--radius-base);
+            color: var(--color-error);
+            font-size: 0.875rem;
+            margin-bottom: var(--space-20);
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: var(--space-16);
+            }
+
+            .form-card {
+                padding: var(--space-20);
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Factory Intake Form</h1>
+            <p class="subtitle">Build for War Initiative</p>
+            <p class="company">Rouge</p>
+        </div>
+
+        <div id="form-container">
+            <form id="factory-form">
+                <div class="form-card">
+                    <h2 class="section-title">Company Information</h2>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="companyName">Company Name <span class="required">*</span></label>
+                        <input type="text" id="companyName" name="companyName" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="address">Company Address <span class="required">*</span></label>
+                        <textarea id="address" name="address" class="form-control" required></textarea>
+                        <div class="help-text">Please include street address, city, state, and ZIP code</div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="city">City <span class="required">*</span></label>
+                            <input type="text" id="city" name="city" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="state">State <span class="required">*</span></label>
+                            <input type="text" id="state" name="state" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="zipCode">ZIP Code <span class="required">*</span></label>
+                            <input type="text" id="zipCode" name="zipCode" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="contactName">Primary Contact Name <span class="required">*</span></label>
+                            <input type="text" id="contactName" name="contactName" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="contactEmail">Contact Email <span class="required">*</span></label>
+                            <input type="email" id="contactEmail" name="contactEmail" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="contactPhone">Contact Phone <span class="required">*</span></label>
+                            <input type="tel" id="contactPhone" name="contactPhone" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="website">Company Website</label>
+                        <input type="url" id="website" name="website" class="form-control" placeholder="https://example.com">
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <h2 class="section-title">Facility Information</h2>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="numEmployees">Number of Employees <span class="required">*</span></label>
+                            <select id="numEmployees" name="numEmployees" class="form-control" required>
+                                <option value="">Select range</option>
+                                <option value="1-10">1-10</option>
+                                <option value="11-50">11-50</option>
+                                <option value="51-100">51-100</option>
+                                <option value="101-250">101-250</option>
+                                <option value="251-500">251-500</option>
+                                <option value="501-1000">501-1,000</option>
+                                <option value="1001+">1,001+</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="facilitySize">Facility Size (sq ft) <span class="required">*</span></label>
+                            <input type="number" id="facilitySize" name="facilitySize" class="form-control" min="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="yearsOperation">Years in Operation <span class="required">*</span></label>
+                            <input type="number" id="yearsOperation" name="yearsOperation" class="form-control" min="0" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Facility Assets <span class="required">*</span></label>
+                        <div class="help-text" style="margin-bottom: var(--space-12);">Select all that apply</div>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="asset-cnc" name="assets" value="CNC Machines">
+                                <label for="asset-cnc">CNC Machines</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="asset-3d" name="assets" value="3D Printers / Additive Manufacturing">
+                                <label for="asset-3d">3D Printers / Additive Manufacturing Equipment</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="asset-injection" name="assets" value="Injection Molding">
+                                <label for="asset-injection">Injection Molding Equipment</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="asset-lathe" name="assets" value="Lathes">
+                                <label for="asset-lathe">Lathes</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="asset-mill" name="assets" value="Milling Machines">
+                                <label for="asset-mill">Milling Machines</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="asset-press" name="assets" value="Stamping / Forming Presses">
+                                <label for="asset-press">Stamping / Forming Presses</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="asset-welding" name="assets" value="Welding Equipment">
+                                <label for="asset-welding">Welding Equipment</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="asset-assembly" name="assets" value="Assembly Lines">
+                                <label for="asset-assembly">Assembly Lines</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="asset-inspection" name="assets" value="Quality Inspection / CMM">
+                                <label for="asset-inspection">Quality Inspection / CMM Equipment</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="asset-other" name="assets" value="Other">
+                                <label for="asset-other">Other (specify below)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="otherAssets">Other Assets (if applicable)</label>
+                        <textarea id="otherAssets" name="otherAssets" class="form-control" placeholder="Describe any additional assets not listed above"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <h2 class="section-title">Manufacturing Capabilities</h2>
+
+                    <div class="form-group">
+                        <label class="form-label">Core Capabilities <span class="required">*</span></label>
+                        <div class="help-text" style="margin-bottom: var(--space-12);">Select all that apply</div>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cap-additive" name="capabilities" value="Additive Manufacturing">
+                                <label for="cap-additive">Additive Manufacturing (3D Printing)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cap-injection" name="capabilities" value="Injection Molding">
+                                <label for="cap-injection">Injection Molding</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cap-machining" name="capabilities" value="CNC Machining">
+                                <label for="cap-machining">CNC Machining</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cap-forming" name="capabilities" value="Forming / Stamping">
+                                <label for="cap-forming">Forming / Stamping</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cap-casting" name="capabilities" value="Casting">
+                                <label for="cap-casting">Casting (Die, Sand, Investment)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cap-forging" name="capabilities" value="Forging">
+                                <label for="cap-forging">Forging</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cap-fabrication" name="capabilities" value="Sheet Metal Fabrication">
+                                <label for="cap-fabrication">Sheet Metal Fabrication</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cap-welding" name="capabilities" value="Welding / Joining">
+                                <label for="cap-welding">Welding / Joining</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cap-assembly" name="capabilities" value="Assembly">
+                                <label for="cap-assembly">Assembly</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cap-coating" name="capabilities" value="Surface Treatment / Coating">
+                                <label for="cap-coating">Surface Treatment / Coating</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cap-heat" name="capabilities" value="Heat Treatment">
+                                <label for="cap-heat">Heat Treatment</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Materials Worked With <span class="required">*</span></label>
+                        <div class="help-text" style="margin-bottom: var(--space-12);">Select all that apply</div>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="mat-aluminum" name="materials" value="Aluminum">
+                                <label for="mat-aluminum">Aluminum</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="mat-steel" name="materials" value="Steel / Stainless Steel">
+                                <label for="mat-steel">Steel / Stainless Steel</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="mat-titanium" name="materials" value="Titanium">
+                                <label for="mat-titanium">Titanium</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="mat-brass" name="materials" value="Brass / Copper">
+                                <label for="mat-brass">Brass / Copper</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="mat-plastics" name="materials" value="Plastics / Polymers">
+                                <label for="mat-plastics">Plastics / Polymers</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="mat-composites" name="materials" value="Composites">
+                                <label for="mat-composites">Composites</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="mat-ceramics" name="materials" value="Ceramics">
+                                <label for="mat-ceramics">Ceramics</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="additionalCapabilities">Additional Capabilities</label>
+                        <textarea id="additionalCapabilities" name="additionalCapabilities" class="form-control" placeholder="Describe any specialized capabilities, tolerances, or unique processes"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <h2 class="section-title">Certifications &amp; Compliance</h2>
+
+                    <div class="form-group">
+                        <label class="form-label">Quality Certifications</label>
+                        <div class="help-text" style="margin-bottom: var(--space-12);">Select all that apply</div>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cert-iso9001" name="certifications" value="ISO 9001">
+                                <label for="cert-iso9001">ISO 9001 (Quality Management)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cert-as9100" name="certifications" value="AS9100">
+                                <label for="cert-as9100">AS9100 (Aerospace Quality Management)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cert-iso13485" name="certifications" value="ISO 13485">
+                                <label for="cert-iso13485">ISO 13485 (Medical Device Quality Management)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cert-iatf" name="certifications" value="IATF 16949">
+                                <label for="cert-iatf">IATF 16949 (Automotive Quality Management)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cert-iso14001" name="certifications" value="ISO 14001">
+                                <label for="cert-iso14001">ISO 14001 (Environmental Management)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cert-nadcap" name="certifications" value="NADCAP">
+                                <label for="cert-nadcap">NADCAP (Aerospace Special Processes)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cert-other" name="certifications" value="Other">
+                                <label for="cert-other">Other (specify below)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cert-none" name="certifications" value="None">
+                                <label for="cert-none">None</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="otherCertifications">Other Certifications (if applicable)</label>
+                        <input type="text" id="otherCertifications" name="otherCertifications" class="form-control" placeholder="List any additional certifications">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">ITAR Compliance <span class="required">*</span></label>
+                        <div class="help-text" style="margin-bottom: var(--space-12);">International Traffic in Arms Regulations</div>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="itar-yes" name="itarCompliant" value="Yes" required>
+                                <label for="itar-yes">Yes - Currently ITAR compliant and registered</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="itar-no" name="itarCompliant" value="No">
+                                <label for="itar-no">No - Not currently ITAR compliant</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="itar-willing" name="itarCompliant" value="Willing">
+                                <label for="itar-willing">Not currently, but willing to pursue ITAR compliance</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">EAR Compliance <span class="required">*</span></label>
+                        <div class="help-text" style="margin-bottom: var(--space-12);">Export Administration Regulations</div>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="ear-yes" name="earCompliant" value="Yes" required>
+                                <label for="ear-yes">Yes - Currently EAR compliant</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="ear-no" name="earCompliant" value="No">
+                                <label for="ear-no">No - Not currently EAR compliant</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="ear-willing" name="earCompliant" value="Willing">
+                                <label for="ear-willing">Not currently, but willing to pursue EAR compliance</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">US Government Contracts <span class="required">*</span></label>
+                        <div class="help-text" style="margin-bottom: var(--space-12);">Have you previously done business with the US Government?</div>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="gov-yes" name="govContracts" value="Yes" required>
+                                <label for="gov-yes">Yes</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="gov-no" name="govContracts" value="No">
+                                <label for="gov-no">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="gov-contracts-detail" class="conditional-field" style="display: none;">
+                        <div class="form-group">
+                            <label class="form-label" for="govContractsDetail">Government Contract Details</label>
+                            <textarea id="govContractsDetail" name="govContractsDetail" class="form-control" placeholder="Please describe past government contracts, agencies worked with, and types of products/services provided"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <h2 class="section-title">Production Capacity</h2>
+
+                    <div class="form-group">
+                        <label class="form-label">Excess Capacity Available <span class="required">*</span></label>
+                        <div class="help-text" style="margin-bottom: var(--space-12);">Do you have unused production capacity that could be allocated to new projects?</div>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="capacity-yes" name="excessCapacity" value="Yes" required>
+                                <label for="capacity-yes">Yes</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="capacity-no" name="excessCapacity" value="No">
+                                <label for="capacity-no">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="capacity-detail" class="conditional-field" style="display: none;">
+                        <div class="form-group">
+                            <label class="form-label" for="capacityPercentage">Estimated Excess Capacity (%)</label>
+                            <input type="number" id="capacityPercentage" name="capacityPercentage" class="form-control" min="0" max="100" placeholder="e.g., 25">
+                            <div class="help-text">Estimate the percentage of your total production capacity currently available</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Which Capabilities Have Excess Capacity?</label>
+                            <div class="help-text" style="margin-bottom: var(--space-12);">Select all that apply</div>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="excess-additive" name="excessCapabilities" value="Additive Manufacturing">
+                                    <label for="excess-additive">Additive Manufacturing</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="excess-injection" name="excessCapabilities" value="Injection Molding">
+                                    <label for="excess-injection">Injection Molding</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="excess-machining" name="excessCapabilities" value="CNC Machining">
+                                    <label for="excess-machining">CNC Machining</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="excess-forming" name="excessCapabilities" value="Forming / Stamping">
+                                    <label for="excess-forming">Forming / Stamping</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="excess-casting" name="excessCapabilities" value="Casting">
+                                    <label for="excess-casting">Casting</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="excess-fabrication" name="excessCapabilities" value="Sheet Metal Fabrication">
+                                    <label for="excess-fabrication">Sheet Metal Fabrication</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="excess-welding" name="excessCapabilities" value="Welding / Joining">
+                                    <label for="excess-welding">Welding / Joining</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="excess-assembly" name="excessCapabilities" value="Assembly">
+                                    <label for="excess-assembly">Assembly</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="capacityNotes">Capacity Details</label>
+                            <textarea id="capacityNotes" name="capacityNotes" class="form-control" placeholder="Describe production volumes, lead times, shift availability, or other relevant capacity information"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="productionVolume">Typical Production Volume</label>
+                        <select id="productionVolume" name="productionVolume" class="form-control">
+                            <option value="">Select range</option>
+                            <option value="Prototype/Low">Prototype / Low Volume (1-100 units)</option>
+                            <option value="Medium">Medium Volume (100-1,000 units)</option>
+                            <option value="High">High Volume (1,000-10,000 units)</option>
+                            <option value="Very High">Very High Volume (10,000+ units)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="leadTime">Typical Lead Time</label>
+                        <select id="leadTime" name="leadTime" class="form-control">
+                            <option value="">Select range</option>
+                            <option value="1-2 weeks">1-2 weeks</option>
+                            <option value="2-4 weeks">2-4 weeks</option>
+                            <option value="1-2 months">1-2 months</option>
+                            <option value="2-3 months">2-3 months</option>
+                            <option value="3+ months">3+ months</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <h2 class="section-title">Additional Information</h2>
+
+                    <div class="form-group">
+                        <label class="form-label">Industries Served</label>
+                        <div class="help-text" style="margin-bottom: var(--space-12);">Select all that apply</div>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="ind-aerospace" name="industries" value="Aerospace & Defense">
+                                <label for="ind-aerospace">Aerospace &amp; Defense</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="ind-automotive" name="industries" value="Automotive">
+                                <label for="ind-automotive">Automotive</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="ind-medical" name="industries" value="Medical Device">
+                                <label for="ind-medical">Medical Device</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="ind-industrial" name="industries" value="Industrial Equipment">
+                                <label for="ind-industrial">Industrial Equipment</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="ind-electronics" name="industries" value="Electronics">
+                                <label for="ind-electronics">Electronics</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="ind-energy" name="industries" value="Energy">
+                                <label for="ind-energy">Energy</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="ind-consumer" name="industries" value="Consumer Products">
+                                <label for="ind-consumer">Consumer Products</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="specializations">Specializations or Unique Differentiators</label>
+                        <textarea id="specializations" name="specializations" class="form-control" placeholder="Describe any unique capabilities, proprietary processes, specialized expertise, or competitive advantages"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="additionalComments">Additional Comments or Information</label>
+                        <textarea id="additionalComments" name="additionalComments" class="form-control" placeholder="Any other relevant information about your factory that would help evaluate conversion eligibility"></textarea>
+                    </div>
+                </div>
+
+                <div class="error-message" id="error-message"></div>
+
+                <div class="btn-group">
+                    <button type="submit" class="btn btn-primary btn-full">Submit Factory Information</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="success-message" id="success-message">
+            <h2>✓ Submission Successful</h2>
+            <p>Thank you for submitting your factory information to the Build for War initiative. Your submission has been recorded and our team will review your facility's eligibility for factory conversion.</p>
+            <p style="color: var(--color-text-secondary); font-size: 0.875rem;">A confirmation has been sent to the email address provided.</p>
+            <button class="btn btn-primary" onclick="resetForm()">Submit Another Factory</button>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('factory-form');
+        const formContainer = document.getElementById('form-container');
+        const successMessage = document.getElementById('success-message');
+        const errorMessage = document.getElementById('error-message');
+
+        document.querySelectorAll('input[name="govContracts"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const detailSection = document.getElementById('gov-contracts-detail');
+                detailSection.style.display = this.value === 'Yes' ? 'block' : 'none';
+            });
+        });
+
+        document.querySelectorAll('input[name="excessCapacity"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const detailSection = document.getElementById('capacity-detail');
+                detailSection.style.display = this.value === 'Yes' ? 'block' : 'none';
+            });
+        });
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            errorMessage.textContent = '';
+            errorMessage.classList.remove('show');
+
+            const requiredCheckboxGroups = [
+                { name: 'assets', label: 'Facility Assets' },
+                { name: 'capabilities', label: 'Core Capabilities' },
+                { name: 'materials', label: 'Materials Worked With' }
+            ];
+
+            let hasError = false;
+            requiredCheckboxGroups.forEach(group => {
+                const checked = document.querySelectorAll(`input[name="${group.name}"]:checked`);
+                if (checked.length === 0) {
+                    errorMessage.textContent = `Please select at least one option for ${group.label}`;
+                    errorMessage.classList.add('show');
+                    hasError = true;
+                    return;
+                }
+            });
+
+            if (hasError) {
+                errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+
+            const formData = new FormData(form);
+            const data = {};
+            
+            formData.forEach((value, key) => {
+                if (data[key]) {
+                    if (Array.isArray(data[key])) {
+                        data[key].push(value);
+                    } else {
+                        data[key] = [data[key], value];
+                    }
+                } else {
+                    data[key] = value;
+                }
+            });
+
+            data.assets = Array.from(document.querySelectorAll('input[name="assets"]:checked')).map(el => el.value);
+            data.capabilities = Array.from(document.querySelectorAll('input[name="capabilities"]:checked')).map(el => el.value);
+            data.materials = Array.from(document.querySelectorAll('input[name="materials"]:checked')).map(el => el.value);
+            data.certifications = Array.from(document.querySelectorAll('input[name="certifications"]:checked')).map(el => el.value);
+            data.excessCapabilities = Array.from(document.querySelectorAll('input[name="excessCapabilities"]:checked')).map(el => el.value);
+            data.industries = Array.from(document.querySelectorAll('input[name="industries"]:checked')).map(el => el.value);
+            
+            data.submissionDate = new Date().toISOString();
+
+            console.log('Factory Intake Form Submission:', JSON.stringify(data, null, 2));
+
+            fetch('YOUR_APPS_SCRIPT_URL_HERE', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(() => {
+                formContainer.style.display = 'none';
+                successMessage.classList.add('show');
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            })
+            .catch(error => {
+                console.error('Submission error:', error);
+                errorMessage.textContent = 'There was an error submitting the form. Please try again.';
+                errorMessage.classList.add('show');
+                errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        });
+
+        function resetForm() {
+            form.reset();
+            formContainer.style.display = 'block';
+            successMessage.classList.remove('show');
+            document.getElementById('gov-contracts-detail').style.display = 'none';
+            document.getElementById('capacity-detail').style.display = 'none';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
+
